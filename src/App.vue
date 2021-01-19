@@ -48,6 +48,11 @@ export default {
       artist:'Timi Dakolo',
       src: require('./music/Timi_Dakolo_-_Great_Nation_Mp3bullet.ng.mp3')
       },
+      {
+      title: 'The Difference',
+      artist:'Dunsin Oyekan',
+      src: require('./music/Dunsin_Oyekan_-_The_Difference.mp3')
+      },
      
       ],
       player: new Audio() //this will trigger an htmlAudio Element
