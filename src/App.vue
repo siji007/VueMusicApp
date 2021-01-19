@@ -17,7 +17,7 @@
       </section>
       <div class="playlist">
         <h3 class="mt-4">Playlist</h3>
-        <button v-for="song in songs" :key="song" @click="play(song)" :class="(song.src == current.src) ? 'song playing' : 'song'" class="mt-10  mr-4 p-3 text-2xl">
+        <button id="buttonMessage" v-for="song in songs" :key="song" @click="play(song)" :class="(song.src == current.src) ? 'song playing' : 'song'" class="mt-10 text-white  mr-4 p-3 text-2xl">
           {{song.title}} - {{song.artist}}
         </button>
       </div>
@@ -49,11 +49,10 @@ export default {
       src: require('./music/Timi_Dakolo_-_Great_Nation_Mp3bullet.ng.mp3')
       },
       {
-      title: 'The Difference',
+      title:'The Difference',
       artist:'Dunsin Oyekan',
       src: require('./music/Dunsin_Oyekan_-_The_Difference.mp3')
       },
-     
       ],
       player: new Audio() //this will trigger an htmlAudio Element
     }
@@ -63,7 +62,6 @@ export default {
       this.current = this.songs[this.index];
       this.player.src = this.current.src;
       // this.player.play();
-
     },
   methods:{
     play(song){
@@ -71,12 +69,10 @@ export default {
         this.current = song;
         this.player.src = this.current.src;
       }
-
       this.player.play();
       this.player.addEventListener('ended', function(){ //this will control what will happen after the song has ended!!
         this.index++;
-
-         if(this.index > this.songs.length){
+        if(this.index > this.songs.length){
         this.index = 0;
       }
       this.current = this.songs[this.index];
@@ -110,6 +106,10 @@ export default {
 </script>
 
 <style>
+body{
+  background-color: black;
+  color: white;
+}
 .titleMusic{
   font-size: 50px;
 }
@@ -134,11 +134,13 @@ button:hover{
   font-weight: 600;
   font-size: 38px;
 }
-.playlist .song{
 
-}
 .playlist .song.playing{
   color:white;
   background-image: linear-gradient(to right, #CC2E50, #FF5858);
+}
+#buttonMessage{
+  overflow: hidden;
+  white-space: nowrap;
 }
 </style>
